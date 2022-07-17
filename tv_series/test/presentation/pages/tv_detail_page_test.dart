@@ -73,24 +73,6 @@ void main() {
     expect(circularProgressIndicatorFinder, findsOneWidget);
   });
 
-  testWidgets('Should widget display which all required',
-      (WidgetTester tester) async {
-    when(() => fakeTvSeriesDetailBloc.state)
-        .thenReturn(TvSeriesDetailHasData(testTvDetail));
-    when(() => fakeWatchlistTvSeriesBloc.state)
-        .thenReturn(WatchlistTvSeriesHasData(testTvList));
-    when(() => fakeTvSeriesRecommendationBloc.state)
-        .thenReturn(TvSeriesRecommendationHasData(testTvList));
-    await tester
-        .pumpWidget(_makeTestableWidget(const TvDetailPage(id: testId)));
-    await tester.pump();
-
-    expect(find.text('Watchlist'), findsOneWidget);
-    expect(find.text('Overview'), findsOneWidget);
-    expect(find.text('More Like This'), findsOneWidget);
-    expect(find.byKey(const Key('detail_tv')), findsOneWidget);
-  });
-
   testWidgets(
       'Should display add icon when Tvseries is not added to watchlist in watchlist button',
       (WidgetTester tester) async {

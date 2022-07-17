@@ -71,24 +71,6 @@ void main() {
     expect(circularProgressIndicatorFinder, findsOneWidget);
   });
 
-  testWidgets('should widget display which all required',
-      (WidgetTester tester) async {
-    when(() => fakeMovieDetailBloc.state)
-        .thenReturn(MovieDetailHasData(testMovieDetail));
-    when(() => fakeWatchlistMoviesBloc.state)
-        .thenReturn(WatchlistMoviesHasData(testMovieList));
-    when(() => fakeMovieRecommendationsBloc.state)
-        .thenReturn(MovieRecommendationsHasData(testMovieList));
-    await tester
-        .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: testId)));
-    await tester.pump();
-
-    expect(find.text('Watchlist'), findsOneWidget);
-    expect(find.text('Overview'), findsOneWidget);
-    expect(find.text('More Like This'), findsOneWidget);
-    expect(find.byKey(const Key('detail_movie')), findsOneWidget);
-  });
-
   testWidgets(
       'should display add icon when movie is not added to watchlist in watchlist button',
       (WidgetTester tester) async {
