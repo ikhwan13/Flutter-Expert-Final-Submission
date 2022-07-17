@@ -12,7 +12,7 @@ import 'package:watchlist/watchlist.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  //await SSLHelper.init();
+  await SSLHelper.init();
   di.init();
   runApp(MyApp());
 }
@@ -59,24 +59,24 @@ class MyApp extends StatelessWidget {
               return CupertinoPageRoute(builder: (_) => PopularMoviesPage());
             case TopRatedMoviesPage.routeName:
               return CupertinoPageRoute(builder: (_) => TopRatedMoviesPage());
-            case MoviesDetailPage.routeName:
+            case MovieDetailPage.routeName:
               final id = settings.arguments as int;
               return MaterialPageRoute(
-                builder: (_) => MoviesDetailPage(id: id),
+                builder: (_) => MovieDetailPage(id: id),
                 settings: settings,
               );
             case SearchPage.routeName:
               return CupertinoPageRoute(builder: (_) => SearchPage());
             case WatchlistPage.routeName:
               return MaterialPageRoute(builder: (_) => WatchlistPage());
-            case PopularTvPage.routeName:
-              return CupertinoPageRoute(builder: (_) => PopularTvPage());
-            case TopRatedTvPage.routeName:
-              return CupertinoPageRoute(builder: (_) => TopRatedTvPage());
-            case TvDetailPage.routeName:
+            case PopularTvSeriesPage.routeName:
+              return CupertinoPageRoute(builder: (_) => PopularTvSeriesPage());
+            case TopRatedTvSeriesPage.routeName:
+              return CupertinoPageRoute(builder: (_) => TopRatedTvSeriesPage());
+            case TvSeriesDetailPage.routeName:
               final id = settings.arguments as int;
               return MaterialPageRoute(
-                builder: (_) => TvDetailPage(id: id),
+                builder: (_) => TvSeriesDetailPage(id: id),
                 settings: settings,
               );
             case AboutPage.routeName:
