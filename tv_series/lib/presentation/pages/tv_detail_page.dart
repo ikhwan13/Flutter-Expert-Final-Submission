@@ -5,7 +5,7 @@ import 'package:tv_series/tv_series.dart';
 import 'package:watchlist/watchlist.dart';
 
 class TvSeriesDetailPage extends StatefulWidget {
-  static const routeName = '/detail-tvseries';
+  static const routeName = '/detail-tv';
 
   final int id;
   const TvSeriesDetailPage({Key? key, required this.id}) : super(key: key);
@@ -208,7 +208,7 @@ class _DetailContentState extends State<DetailContent> {
                             Text(widget.tvSeries.overview.toString()),
                             const SizedBox(height: 16),
                             Text(
-                              'More Like This',
+                              'Recommendation',
                               style: kHeading6,
                             ),
                             BlocBuilder<TvSeriesRecommendationBloc,
