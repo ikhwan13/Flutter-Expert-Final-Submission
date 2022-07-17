@@ -9,7 +9,7 @@ import 'package:tv_series/tv_series.dart';
   MovieRepository,
   TvSeriesRepository,
   MovieRemoteDataSource,
-  TvSeriesRemoteDataSource,
+  TvRemoteDataSource,
   MovieLocalDataSource,
   TvSeriesLocalDataSource,
   DatabaseHelper,

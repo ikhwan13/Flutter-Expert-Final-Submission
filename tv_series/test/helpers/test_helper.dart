@@ -6,7 +6,7 @@ import 'package:tv_series/tv_series.dart';
 
 @GenerateMocks([
   TvSeriesRepository,
-  TvSeriesRemoteDataSource,
+  TvRemoteDataSource,
   TvSeriesLocalDataSource,
   DatabaseHelper,
 ], customMocks: [

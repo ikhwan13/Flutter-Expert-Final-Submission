@@ -7,11 +7,11 @@ import 'dart:async' as _i5;
 import 'package:core/core.dart' as _i7;
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:tv_series/domain/repository/tv_series_repository.dart' as _i2;
+import 'package:tv_series/domain/repository/tv_repository.dart' as _i2;
 import 'package:tv_series/tv_series.dart' as _i8;
 import 'package:watchlist/domain/usecases/tv_series/get_watchlist_status.dart'
     as _i4;
-import 'package:watchlist/domain/usecases/tv_series/get_watchlist_tv_series.dart'
+import 'package:watchlist/domain/usecases/tv_series/get_watchlist_tv.dart'
     as _i6;
 import 'package:watchlist/domain/usecases/tv_series/remove_watchlist.dart'
     as _i9;

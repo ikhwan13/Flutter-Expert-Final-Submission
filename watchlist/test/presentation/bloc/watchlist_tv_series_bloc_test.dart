@@ -6,7 +6,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:watchlist/watchlist.dart';
 
-import '../../dummy_data/tv_series/dummy_object_tv_series.dart';
+import '../../dummy_data/tv_series/dummy_object_tv.dart';
 import 'watchlist_tv_series_bloc_test.mocks.dart';
 
 @GenerateMocks([

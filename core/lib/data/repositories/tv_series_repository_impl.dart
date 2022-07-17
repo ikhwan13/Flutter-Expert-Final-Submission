@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:tv_series/tv_series.dart';
 
 class TvSeriesRepositoryImpl extends TvSeriesRepository {
-  final TvSeriesRemoteDataSource remoteDataSource;
+  final TvRemoteDataSource remoteDataSource;
   final TvSeriesLocalDataSource localDataSource;
 
   TvSeriesRepositoryImpl(

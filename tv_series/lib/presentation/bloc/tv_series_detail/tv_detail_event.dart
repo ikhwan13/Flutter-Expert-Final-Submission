@@ -1,0 +1,11 @@
+part of 'tv_detail_bloc.dart';
+
+abstract class TvSeriesDetailEvent extends Equatable {}
+
+class OnTvSeriesDetailCalled extends TvSeriesDetailEvent {
+  final int id;
+
+  OnTvSeriesDetailCalled(this.id);
+  @override
+  List<Object?> get props => [id];
+}

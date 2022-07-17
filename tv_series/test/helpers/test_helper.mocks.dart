@@ -127,29 +127,29 @@ class MockTvSeriesRepository extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockTvSeriesRemoteDataSource extends _i1.Mock
-    implements _i3.TvSeriesRemoteDataSource {
+    implements _i3.TvRemoteDataSource {
   MockTvSeriesRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i7.Future<List<_i3.TvSeriesModel>> getNowPlaying() =>
+  _i7.Future<List<_i3.TvModel>> getNowPlaying() =>
       (super.noSuchMethod(Invocation.method(#getNowPlaying, []),
               returnValue:
-                  Future<List<_i3.TvSeriesModel>>.value(<_i3.TvSeriesModel>[]))
-          as _i7.Future<List<_i3.TvSeriesModel>>);
+                  Future<List<_i3.TvModel>>.value(<_i3.TvModel>[]))
+          as _i7.Future<List<_i3.TvModel>>);
   @override
-  _i7.Future<List<_i3.TvSeriesModel>> getPopularTvSeries() =>
+  _i7.Future<List<_i3.TvModel>> getPopularTvSeries() =>
       (super.noSuchMethod(Invocation.method(#getPopularTvSeries, []),
               returnValue:
-                  Future<List<_i3.TvSeriesModel>>.value(<_i3.TvSeriesModel>[]))
-          as _i7.Future<List<_i3.TvSeriesModel>>);
+                  Future<List<_i3.TvModel>>.value(<_i3.TvModel>[]))
+          as _i7.Future<List<_i3.TvModel>>);
   @override
-  _i7.Future<List<_i3.TvSeriesModel>> getTopRatedTvSeries() =>
+  _i7.Future<List<_i3.TvModel>> getTopRatedTvSeries() =>
       (super.noSuchMethod(Invocation.method(#getTopRatedTvSeries, []),
               returnValue:
-                  Future<List<_i3.TvSeriesModel>>.value(<_i3.TvSeriesModel>[]))
-          as _i7.Future<List<_i3.TvSeriesModel>>);
+                  Future<List<_i3.TvModel>>.value(<_i3.TvModel>[]))
+          as _i7.Future<List<_i3.TvModel>>);
   @override
   _i7.Future<_i3.TvDetailResponse> getDetailTvSeries(int? id) =>
       (super.noSuchMethod(Invocation.method(#getDetailTvSeries, [id]),
@@ -157,17 +157,17 @@ class MockTvSeriesRemoteDataSource extends _i1.Mock
                   Future<_i3.TvDetailResponse>.value(_FakeTvDetailResponse_1()))
           as _i7.Future<_i3.TvDetailResponse>);
   @override
-  _i7.Future<List<_i3.TvSeriesModel>> getRecommendedTvSeries(int? id) =>
+  _i7.Future<List<_i3.TvModel>> getRecommendedTvSeries(int? id) =>
       (super.noSuchMethod(Invocation.method(#getRecommendedTvSeries, [id]),
               returnValue:
-                  Future<List<_i3.TvSeriesModel>>.value(<_i3.TvSeriesModel>[]))
-          as _i7.Future<List<_i3.TvSeriesModel>>);
+                  Future<List<_i3.TvModel>>.value(<_i3.TvModel>[]))
+          as _i7.Future<List<_i3.TvModel>>);
   @override
-  _i7.Future<List<_i3.TvSeriesModel>> getSearchTv(String? query) =>
+  _i7.Future<List<_i3.TvModel>> getSearchTv(String? query) =>
       (super.noSuchMethod(Invocation.method(#getSearchTv, [query]),
               returnValue:
-                  Future<List<_i3.TvSeriesModel>>.value(<_i3.TvSeriesModel>[]))
-          as _i7.Future<List<_i3.TvSeriesModel>>);
+                  Future<List<_i3.TvModel>>.value(<_i3.TvModel>[]))
+          as _i7.Future<List<_i3.TvModel>>);
 }
 
 /// A class which mocks [TvSeriesLocalDataSource].

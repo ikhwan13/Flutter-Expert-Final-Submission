@@ -3,20 +3,21 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 import 'package:http/io_client.dart';
 
 class SSLHelper {
-  static Future<IOClient> get _instance async =>
-      _clientInstance ??= await createLEClient();
+  static Future<http.Client> get _instance async =>
+      _clientInstance ??= await Shared.createLEClient();
 
-  static IOClient? _clientInstance;
-
-  static IOClient get client => _clientInstance ?? IOClient();
+  static http.Client? _clientInstance;
+  static http.Client get client => _clientInstance ?? http.Client();
 
   static Future<void> init() async {
     _clientInstance = await _instance;
   }
-
+}
+class Shared {
   static Future<HttpClient> customHttpClient({
     bool isTestMode = false,
   }) async {
@@ -24,9 +25,9 @@ class SSLHelper {
     try {
       List<int> bytes = [];
       if (isTestMode) {
-        bytes = utf8.encode(_certificates);
+        bytes = utf8.encode(_certificatedString);
       } else {
-        bytes = (await rootBundle.load('certificates/certificate.cer'))
+        bytes = (await rootBundle.load('certificates/certificates.cer'))
             .buffer
             .asUint8List();
       }
@@ -52,13 +53,14 @@ class SSLHelper {
     return httpClient;
   }
 
-  static Future<IOClient> createLEClient({bool isTestMode = false}) async {
-    IOClient client = IOClient(await customHttpClient(isTestMode: isTestMode));
+  static Future<http.Client> createLEClient({bool isTestMode = false}) async {
+    IOClient client =
+    IOClient(await Shared.customHttpClient(isTestMode: isTestMode));
     return client;
   }
 }
 
-const _certificates = """-----BEGIN CERTIFICATE-----
+const _certificatedString = """-----BEGIN CERTIFICATE-----
 MIIF5zCCBM+gAwIBAgIQAdKnBRs48TrGZbcfFRKNgDANBgkqhkiG9w0BAQsFADBG
 MQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRUwEwYDVQQLEwxTZXJ2ZXIg
 Q0EgMUIxDzANBgNVBAMTBkFtYXpvbjAeFw0yMTEwMjEwMDAwMDBaFw0yMjExMTgy
