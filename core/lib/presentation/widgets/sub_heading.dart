@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-
 import 'package:core/core.dart';
+import 'package:flutter/material.dart';
 
 class SubHeading extends StatelessWidget {
   // const SubHeading({Key? key}) : super(key: key);
@@ -8,7 +7,8 @@ class SubHeading extends StatelessWidget {
   final String title;
   final Function() onTap;
 
-  const SubHeading({Key? key, required this.title, required this.onTap}) : super(key: key);
+  const SubHeading({Key? key, required this.title, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

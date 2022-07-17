@@ -20,7 +20,7 @@ class WatchlistTvSeriesError extends WatchlistTvSeriesState {
 }
 
 class WatchlistTvSeriesHasData extends WatchlistTvSeriesState {
-  final List<Tv> result;
+  final List<TvSeries> result;
   WatchlistTvSeriesHasData(this.result);
   @override
   List<Object?> get props => [result];

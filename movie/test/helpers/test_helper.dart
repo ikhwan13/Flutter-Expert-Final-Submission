@@ -6,9 +6,9 @@ import 'package:movie/movie.dart';
 
 @GenerateMocks([
   MovieRepository,
-  MoviesRemoteDataSource,
+  MovieRemoteDataSource,
   MovieLocalDataSource,
-  MovieDatabaseHelper,
+  DatabaseHelper,
 ], customMocks: [
   MockSpec<http.Client>(as: #MockHttpClient),
   MockSpec<IOClient>(as: #MockIOClient)

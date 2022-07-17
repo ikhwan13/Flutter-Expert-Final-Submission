@@ -15,14 +15,14 @@ class FetchWatchlistTvSeriesStatus extends WatchlistTvSeriesEvent {
 }
 
 class AddTvSeriesToWatchlist extends WatchlistTvSeriesEvent {
-  final TvDetail tvseries;
+  final TvSeriesDetail tvseries;
   AddTvSeriesToWatchlist(this.tvseries);
   @override
   List<Object?> get props => [tvseries];
 }
 
 class RemoveTvSeriesFromWatchlist extends WatchlistTvSeriesEvent {
-  final TvDetail tvseries;
+  final TvSeriesDetail tvseries;
   RemoveTvSeriesFromWatchlist(this.tvseries);
   @override
   List<Object?> get props => [tvseries];

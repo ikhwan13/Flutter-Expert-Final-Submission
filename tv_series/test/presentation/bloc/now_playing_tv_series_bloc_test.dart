@@ -6,10 +6,10 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:tv_series/tv_series.dart';
 
-import '../../dummy_data/dummy_object_tv.dart';
+import '../../dummy_data/dummy_object_tv_series.dart';
 import 'now_playing_tv_series_bloc_test.mocks.dart';
 
-@GenerateMocks([GetOnAiring])
+@GenerateMocks([GetNowPlaying])
 void main() {
   late MockGetNowPlaying mockGetNowPlaying;
   late NowPlayingTvSeriesBloc nowPlayingTvSeriesBloc;
@@ -32,9 +32,9 @@ void main() {
       },
       act: (bloc) => bloc.add(NowPlayingTvSeries()),
       expect: () => <NowPlayingTvSeriesState>[
-        NowPlayingTvSeriesLoading(),
-        NowPlayingTvSeriesHasData(testTvList),
-      ],
+            NowPlayingTvSeriesLoading(),
+            NowPlayingTvSeriesHasData(testTvList),
+          ],
       verify: (bloc) {
         verify(mockGetNowPlaying.execute());
         return NowPlayingTvSeries().props;

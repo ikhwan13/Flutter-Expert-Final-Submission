@@ -1,4 +1,5 @@
-import 'package:movie/movie.dart';
+import 'package:movie/domain/entities/movie.dart';
+import 'package:movie/domain/entities/movie_detail.dart';
 import 'package:watchlist/watchlist.dart';
 
 part 'watchlist_movies_event.dart';
@@ -11,22 +12,22 @@ class WatchlistMoviesBloc
   final RemoveWatchlist _removeWatchlistMovies;
   final SaveWatchlist _saveWatchlistMovies;
   WatchlistMoviesBloc(
-      this._getWatchlistMovies,
-      this._getWatchListStatusMovies,
-      this._removeWatchlistMovies,
-      this._saveWatchlistMovies,
-      ) : super(WatchlistMoviesEmpty()) {
+    this._getWatchlistMovies,
+    this._getWatchListStatusMovies,
+    this._removeWatchlistMovies,
+    this._saveWatchlistMovies,
+  ) : super(WatchlistMoviesEmpty()) {
     on<OnWatchlistMoviesCalled>((event, emit) async {
       emit(WatchlistMoviesLoading());
       final result = await _getWatchlistMovies.execute();
 
       result.fold(
-              (failure) => emit(WatchlistMoviesError(failure.message)),
-              (data) => data.isNotEmpty
+          (failure) => emit(WatchlistMoviesError(failure.message)),
+          (data) => data.isNotEmpty
               ? emit(WatchlistMoviesHasData(data))
               : emit(
-            WatchlistMoviesEmpty(),
-          ));
+                  WatchlistMoviesEmpty(),
+                ));
     });
 
     on<FetchWatchlistMovieStatus>(((event, emit) async {
@@ -44,8 +45,8 @@ class WatchlistMoviesBloc
         final result = await _saveWatchlistMovies.execute(movie);
 
         result.fold(
-              (failure) => emit(WatchlistMoviesError(failure.message)),
-              (message) => emit(
+          (failure) => emit(WatchlistMoviesError(failure.message)),
+          (message) => emit(
             WatchlistMoviesMessage(message),
           ),
         );
@@ -59,8 +60,8 @@ class WatchlistMoviesBloc
         final result = await _removeWatchlistMovies.execute(movie);
 
         result.fold(
-              (failure) => emit(WatchlistMoviesError(failure.message)),
-              (message) => emit(
+          (failure) => emit(WatchlistMoviesError(failure.message)),
+          (message) => emit(
             WatchlistMoviesMessage(message),
           ),
         );

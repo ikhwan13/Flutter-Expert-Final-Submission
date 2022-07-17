@@ -21,7 +21,7 @@ class TvSeriesDetailError extends TvSeriesDetailState {
 }
 
 class TvSeriesDetailHasData extends TvSeriesDetailState {
-  final TvDetail result;
+  final TvSeriesDetail result;
 
   TvSeriesDetailHasData(this.result);
   @override

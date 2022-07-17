@@ -5,7 +5,7 @@ part 'now_playing_tv_series_state.dart';
 
 class NowPlayingTvSeriesBloc
     extends Bloc<NowPlayingTvSeriesEvent, NowPlayingTvSeriesState> {
-  final GetOnAiring _getNowPlaying;
+  final GetNowPlaying _getNowPlaying;
   NowPlayingTvSeriesBloc(this._getNowPlaying)
       : super(NowPlayingTvSeriesEmpty()) {
     on<NowPlayingTvSeries>((event, emit) async {

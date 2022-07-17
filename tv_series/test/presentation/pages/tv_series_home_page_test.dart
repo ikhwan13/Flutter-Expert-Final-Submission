@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:tv_series/tv_series.dart';
 
-import '../../dummy_data/dummy_object_tv.dart';
+import '../../dummy_data/dummy_object_tv_series.dart';
 import '../../helpers/page_test_helper.dart';
 
 void main() {
@@ -55,66 +55,66 @@ void main() {
   }
 
   testWidgets('Page should display circular progress indicator when loading',
-          (WidgetTester tester) async {
-        when(() => fakeNowPlayingTvSeriesBloc.state)
-            .thenReturn(NowPlayingTvSeriesLoading());
-        when(() => fakePopularTvSeriesBloc.state)
-            .thenReturn(PopularTvSeriesLoading());
-        when(() => fakeTopRatedTvSeriesBloc.state)
-            .thenReturn(TopRatedTvSeriesLoading());
+      (WidgetTester tester) async {
+    when(() => fakeNowPlayingTvSeriesBloc.state)
+        .thenReturn(NowPlayingTvSeriesLoading());
+    when(() => fakePopularTvSeriesBloc.state)
+        .thenReturn(PopularTvSeriesLoading());
+    when(() => fakeTopRatedTvSeriesBloc.state)
+        .thenReturn(TopRatedTvSeriesLoading());
 
-        final circularProgressIndicatorFinder =
+    final circularProgressIndicatorFinder =
         find.byType(CircularProgressIndicator);
 
-        await tester.pumpWidget(_createTestableWidget(const TvHomePage()));
+    await tester.pumpWidget(_createTestableWidget(const TvSeriesHomePage()));
 
-        expect(circularProgressIndicatorFinder, findsNWidgets(3));
-      });
+    expect(circularProgressIndicatorFinder, findsNWidgets(3));
+  });
 
   testWidgets(
       'Page should display listview of NowPlayingTvSeries when HasData state is happen',
-          (WidgetTester tester) async {
-        when(() => fakeNowPlayingTvSeriesBloc.state)
-            .thenReturn(NowPlayingTvSeriesHasData(testTvList));
-        when(() => fakePopularTvSeriesBloc.state)
-            .thenReturn(PopularTvSeriesHasData(testTvList));
-        when(() => fakeTopRatedTvSeriesBloc.state)
-            .thenReturn(TopRatedTvSeriesHasData(testTvList));
+      (WidgetTester tester) async {
+    when(() => fakeNowPlayingTvSeriesBloc.state)
+        .thenReturn(NowPlayingTvSeriesHasData(testTvList));
+    when(() => fakePopularTvSeriesBloc.state)
+        .thenReturn(PopularTvSeriesHasData(testTvList));
+    when(() => fakeTopRatedTvSeriesBloc.state)
+        .thenReturn(TopRatedTvSeriesHasData(testTvList));
 
-        final listViewFinder = find.byType(ListView);
+    final listViewFinder = find.byType(ListView);
 
-        await tester.pumpWidget(_createTestableWidget(const TvHomePage()));
+    await tester.pumpWidget(_createTestableWidget(const TvSeriesHomePage()));
 
-        expect(listViewFinder, findsWidgets);
-      });
+    expect(listViewFinder, findsWidgets);
+  });
 
   testWidgets('Page should display error with text when Error state is happen',
-          (WidgetTester tester) async {
-        when(() => fakeNowPlayingTvSeriesBloc.state)
-            .thenReturn(NowPlayingTvSeriesError('error'));
-        when(() => fakePopularTvSeriesBloc.state)
-            .thenReturn(PopularTvSeriesError('error'));
-        when(() => fakeTopRatedTvSeriesBloc.state)
-            .thenReturn(TopRatedTvSeriesError('error'));
+      (WidgetTester tester) async {
+    when(() => fakeNowPlayingTvSeriesBloc.state)
+        .thenReturn(NowPlayingTvSeriesError('error'));
+    when(() => fakePopularTvSeriesBloc.state)
+        .thenReturn(PopularTvSeriesError('error'));
+    when(() => fakeTopRatedTvSeriesBloc.state)
+        .thenReturn(TopRatedTvSeriesError('error'));
 
-        final errorKeyFinder = find.byKey(const Key('error_msg'));
+    final errorKeyFinder = find.byKey(const Key('error_msg'));
 
-        await tester.pumpWidget(_createTestableWidget(const TvHomePage()));
-        expect(errorKeyFinder, findsNWidgets(3));
-      });
+    await tester.pumpWidget(_createTestableWidget(const TvSeriesHomePage()));
+    expect(errorKeyFinder, findsNWidgets(3));
+  });
 
   testWidgets('Page should not display when Empty state is happen',
-          (WidgetTester tester) async {
-        when(() => fakeNowPlayingTvSeriesBloc.state)
-            .thenReturn(NowPlayingTvSeriesEmpty());
-        when(() => fakePopularTvSeriesBloc.state)
-            .thenReturn(PopularTvSeriesEmpty());
-        when(() => fakeTopRatedTvSeriesBloc.state)
-            .thenReturn(TopRatedTvSeriesEmpty());
+      (WidgetTester tester) async {
+    when(() => fakeNowPlayingTvSeriesBloc.state)
+        .thenReturn(NowPlayingTvSeriesEmpty());
+    when(() => fakePopularTvSeriesBloc.state)
+        .thenReturn(PopularTvSeriesEmpty());
+    when(() => fakeTopRatedTvSeriesBloc.state)
+        .thenReturn(TopRatedTvSeriesEmpty());
 
-        final containerFinder = find.byType(Container);
+    final containerFinder = find.byType(Container);
 
-        await tester.pumpWidget(_createTestableWidget(const TvHomePage()));
-        expect(containerFinder, findsNWidgets(3));
-      });
+    await tester.pumpWidget(_createTestableWidget(const TvSeriesHomePage()));
+    expect(containerFinder, findsNWidgets(3));
+  });
 }

@@ -20,7 +20,7 @@ class TopRatedTvSeriesError extends TopRatedTvSeriesState {
 }
 
 class TopRatedTvSeriesHasData extends TopRatedTvSeriesState {
-  final List<Tv> result;
+  final List<TvSeries> result;
   TopRatedTvSeriesHasData(this.result);
 
   @override

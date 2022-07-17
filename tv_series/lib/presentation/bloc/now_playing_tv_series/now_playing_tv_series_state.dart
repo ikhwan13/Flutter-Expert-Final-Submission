@@ -21,7 +21,7 @@ class NowPlayingTvSeriesError extends NowPlayingTvSeriesState {
 }
 
 class NowPlayingTvSeriesHasData extends NowPlayingTvSeriesState {
-  final List<Tv> result;
+  final List<TvSeries> result;
   NowPlayingTvSeriesHasData(this.result);
 
   @override

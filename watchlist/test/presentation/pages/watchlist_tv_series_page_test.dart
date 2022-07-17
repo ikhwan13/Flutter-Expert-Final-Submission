@@ -28,30 +28,30 @@ void main() {
   tearDown(() => fakeWatchlistTvSeriesBloc.close());
 
   testWidgets('page should display circular progress indicator when loading',
-          (WidgetTester tester) async {
-        when(() => fakeWatchlistTvSeriesBloc.state)
-            .thenReturn(WatchlistTvSeriesLoading());
+      (WidgetTester tester) async {
+    when(() => fakeWatchlistTvSeriesBloc.state)
+        .thenReturn(WatchlistTvSeriesLoading());
 
-        final circularProgressIndicatorFinder =
+    final circularProgressIndicatorFinder =
         find.byType(CircularProgressIndicator);
 
-        await tester.pumpWidget(_makeTestableWidget(const TvWatchlistPage()));
-        await tester.pump();
+    await tester.pumpWidget(_makeTestableWidget(const WatchlistTvSeriesPage()));
+    await tester.pump();
 
-        expect(circularProgressIndicatorFinder, findsOneWidget);
-      });
+    expect(circularProgressIndicatorFinder, findsOneWidget);
+  });
 
   testWidgets('should display text with message when error',
-          (WidgetTester tester) async {
-        const errorMessage = 'error message';
+      (WidgetTester tester) async {
+    const errorMessage = 'error message';
 
-        when(() => fakeWatchlistTvSeriesBloc.state)
-            .thenReturn(WatchlistTvSeriesError(errorMessage));
+    when(() => fakeWatchlistTvSeriesBloc.state)
+        .thenReturn(WatchlistTvSeriesError(errorMessage));
 
-        final textMessageKeyFinder = find.byKey(const Key('error_msg'));
-        await tester.pumpWidget(_makeTestableWidget(const TvWatchlistPage()));
-        await tester.pump();
+    final textMessageKeyFinder = find.byKey(const Key('error_msg'));
+    await tester.pumpWidget(_makeTestableWidget(const WatchlistTvSeriesPage()));
+    await tester.pump();
 
-        expect(textMessageKeyFinder, findsOneWidget);
-      });
+    expect(textMessageKeyFinder, findsOneWidget);
+  });
 }

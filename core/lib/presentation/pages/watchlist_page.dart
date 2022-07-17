@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:watchlist/watchlist.dart';
+import 'package:watchlist/presentation/pages/watchlist_movies_page.dart';
+import 'package:watchlist/presentation/pages/watchlist_tv_series_page.dart';
 
 class WatchlistPage extends StatelessWidget {
   static const routeName = '/watchlistPage';
@@ -20,10 +21,10 @@ class WatchlistPage extends StatelessWidget {
                 pinned: true,
                 floating: true,
                 bottom: TabBar(
-                  indicatorColor: kDavysGrey,
+                  indicatorColor: kMikadoYellow,
                   tabs: [
                     _buildTabBarItem('Movies', Icons.movie),
-                    _buildTabBarItem('TV Series', Icons.live_tv),
+                    _buildTabBarItem('TV Series', Icons.tv),
                   ],
                 ),
               ),
@@ -31,8 +32,8 @@ class WatchlistPage extends StatelessWidget {
           },
           body: const TabBarView(
             children: <Widget>[
-              MoviesWatchlistPage(),
-              TvWatchlistPage(),
+              WatchlistMoviesPage(),
+              WatchlistTvSeriesPage(),
             ],
           ),
         ),
@@ -41,16 +42,16 @@ class WatchlistPage extends StatelessWidget {
   }
 
   Widget _buildTabBarItem(String title, IconData iconData) => Padding(
-    padding: const EdgeInsets.only(top: 4.0, bottom: 12.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(iconData),
-        const SizedBox(
-          width: 12.0,
+        padding: const EdgeInsets.only(top: 4.0, bottom: 12.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(iconData),
+            const SizedBox(
+              width: 12.0,
+            ),
+            Text(title),
+          ],
         ),
-        Text(title),
-      ],
-    ),
-  );
+      );
 }

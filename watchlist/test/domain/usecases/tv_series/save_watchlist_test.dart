@@ -3,16 +3,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:watchlist/watchlist.dart';
 
-import '../../../dummy_data/tv_series/dummy_object_tv.dart';
-import '../../../helpers/test_helper.mocks.dart';
+import '../../../dummy_data/tv_series/dummy_object_tv_series.dart';
+import '../../../helpers/test_helpers.mocks.dart';
 
 void main() {
-  late SaveWatchlistTv usecase;
+  late SaveWatchlistTvSeries usecase;
   late MockTvSeriesRepository mockTvRepository;
 
   setUp(() {
     mockTvRepository = MockTvSeriesRepository();
-    usecase = SaveWatchlistTv(mockTvRepository);
+    usecase = SaveWatchlistTvSeries(mockTvRepository);
   });
 
   test('should save tv to the repository', () async {

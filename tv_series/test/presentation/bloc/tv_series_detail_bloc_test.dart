@@ -6,10 +6,10 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:tv_series/tv_series.dart';
 
-import '../../dummy_data/dummy_object_tv.dart';
+import '../../dummy_data/dummy_object_tv_series.dart';
 import 'tv_series_detail_bloc_test.mocks.dart';
 
-@GenerateMocks([GetTvDetail])
+@GenerateMocks([GetTvSeriesDetail])
 void main() {
   late MockGetTvSeriesDetail mockGetTvSeriesDetail;
   late TvSeriesDetailBloc tvSeriesDetailBloc;
@@ -33,9 +33,9 @@ void main() {
       },
       act: (bloc) => bloc.add(OnTvSeriesDetailCalled(testId)),
       expect: () => <TvSeriesDetailState>[
-        TvSeriesDetailLoading(),
-        TvSeriesDetailHasData(testTvDetail),
-      ],
+            TvSeriesDetailLoading(),
+            TvSeriesDetailHasData(testTvDetail),
+          ],
       verify: (bloc) {
         verify(mockGetTvSeriesDetail.execute(testId));
         return OnTvSeriesDetailCalled(testId).props;

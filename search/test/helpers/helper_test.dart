@@ -7,13 +7,13 @@ import 'package:tv_series/tv_series.dart';
 
 @GenerateMocks([
   MovieRepository,
-  TvRepository,
-  MoviesRemoteDataSource,
-  TvRemoteDataSource,
+  TvSeriesRepository,
+  MovieRemoteDataSource,
+  TvSeriesRemoteDataSource,
   MovieLocalDataSource,
-  TvLocalDataSource,
-  MovieDatabaseHelper,
-  DatabaseHelperTv
+  TvSeriesLocalDataSource,
+  DatabaseHelper,
+  DatabaseHelperTvSeries
 ], customMocks: [
   MockSpec<http.Client>(as: #MockHttpClient),
   MockSpec<IOClient>(as: #MockIOClient)

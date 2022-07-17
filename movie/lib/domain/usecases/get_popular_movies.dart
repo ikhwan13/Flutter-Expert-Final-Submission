@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:core/core.dart';
 import 'package:movie/movie.dart';
+import 'package:core/core.dart';
 
 class GetPopularMovies {
   final MovieRepository repository;

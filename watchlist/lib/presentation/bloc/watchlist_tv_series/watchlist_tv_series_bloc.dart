@@ -6,22 +6,22 @@ part 'watchlist_tv_series_state.dart';
 
 class WatchlistTvSeriesBloc
     extends Bloc<WatchlistTvSeriesEvent, WatchlistTvSeriesState> {
-  final GetWatchlistTv _getWatchlistTvSeries;
-  final GetWatchListStatusTv _getWatchListStatusTvSeries;
-  final RemoveWatchlistTv _removeWatchlistTvSeries;
-  final SaveWatchlistTv _saveWatchlistTvSeries;
+  final GetWatchlistTvSeries _getWatchlistTvSeries;
+  final GetWatchListStatusTvSeries _getWatchListStatusTvSeries;
+  final RemoveWatchlistTvSeries _removeWatchlistTvSeries;
+  final SaveWatchlistTvSeries _saveWatchlistTvSeries;
   WatchlistTvSeriesBloc(
-      this._getWatchlistTvSeries,
-      this._getWatchListStatusTvSeries,
-      this._removeWatchlistTvSeries,
-      this._saveWatchlistTvSeries,
-      ) : super(WatchlistTvSeriesEmpty()) {
+    this._getWatchlistTvSeries,
+    this._getWatchListStatusTvSeries,
+    this._removeWatchlistTvSeries,
+    this._saveWatchlistTvSeries,
+  ) : super(WatchlistTvSeriesEmpty()) {
     on<OnWatchlistTvSeriesCalled>((event, emit) async {
       emit(WatchlistTvSeriesLoading());
       final result = await _getWatchlistTvSeries.execute();
       result.fold(
-            (failure) => emit(WatchlistTvSeriesError(failure.message)),
-            (data) => data.isNotEmpty
+        (failure) => emit(WatchlistTvSeriesError(failure.message)),
+        (data) => data.isNotEmpty
             ? emit(WatchlistTvSeriesHasData(data))
             : emit(WatchlistTvSeriesEmpty()),
       );
@@ -42,8 +42,8 @@ class WatchlistTvSeriesBloc
         final result = await _saveWatchlistTvSeries.execute(movie);
 
         result.fold(
-              (failure) => emit(WatchlistTvSeriesError(failure.message)),
-              (message) => emit(
+          (failure) => emit(WatchlistTvSeriesError(failure.message)),
+          (message) => emit(
             WatchlistTvSeriesMessage(message),
           ),
         );
@@ -57,8 +57,8 @@ class WatchlistTvSeriesBloc
         final result = await _removeWatchlistTvSeries.execute(tvseries);
 
         result.fold(
-              (failure) => emit(WatchlistTvSeriesError(failure.message)),
-              (message) => emit(
+          (failure) => emit(WatchlistTvSeriesError(failure.message)),
+          (message) => emit(
             WatchlistTvSeriesMessage(message),
           ),
         );

@@ -8,12 +8,12 @@ import 'package:core/core.dart' as _i7;
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:movie/movie.dart' as _i2;
-import 'package:watchlist/domain/usecases/movie/get_watchlist_movies.dart'
-as _i6;
-import 'package:watchlist/domain/usecases/movie/get_watchlist_status.dart'
-as _i4;
-import 'package:watchlist/domain/usecases/movie/remove_watchlist.dart' as _i8;
-import 'package:watchlist/domain/usecases/movie/save_watchlist.dart' as _i9;
+import 'package:watchlist/domain/usecases/movies/get_watchlist_movies.dart'
+    as _i6;
+import 'package:watchlist/domain/usecases/movies/get_watchlist_status.dart'
+    as _i4;
+import 'package:watchlist/domain/usecases/movies/remove_watchlist.dart' as _i8;
+import 'package:watchlist/domain/usecases/movies/save_watchlist.dart' as _i9;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -80,9 +80,9 @@ class MockRemoveWatchlist extends _i1.Mock implements _i8.RemoveWatchlist {
   @override
   _i5.Future<_i3.Either<_i7.Failure, String>> execute(_i2.MovieDetail? movie) =>
       (super.noSuchMethod(Invocation.method(#execute, [movie]),
-          returnValue: Future<_i3.Either<_i7.Failure, String>>.value(
-              _FakeEither_1<_i7.Failure, String>()))
-      as _i5.Future<_i3.Either<_i7.Failure, String>>);
+              returnValue: Future<_i3.Either<_i7.Failure, String>>.value(
+                  _FakeEither_1<_i7.Failure, String>()))
+          as _i5.Future<_i3.Either<_i7.Failure, String>>);
 }
 
 /// A class which mocks [SaveWatchlist].
@@ -100,7 +100,7 @@ class MockSaveWatchlist extends _i1.Mock implements _i9.SaveWatchlist {
   @override
   _i5.Future<_i3.Either<_i7.Failure, String>> execute(_i2.MovieDetail? movie) =>
       (super.noSuchMethod(Invocation.method(#execute, [movie]),
-          returnValue: Future<_i3.Either<_i7.Failure, String>>.value(
-              _FakeEither_1<_i7.Failure, String>()))
-      as _i5.Future<_i3.Either<_i7.Failure, String>>);
+              returnValue: Future<_i3.Either<_i7.Failure, String>>.value(
+                  _FakeEither_1<_i7.Failure, String>()))
+          as _i5.Future<_i3.Either<_i7.Failure, String>>);
 }

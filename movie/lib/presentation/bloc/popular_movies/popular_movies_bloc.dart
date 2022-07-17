@@ -12,8 +12,8 @@ class PopularMoviesBloc extends Bloc<PopularMoviesEvent, PopularMoviesState> {
       final result = await _getPopularMovies.execute();
 
       result.fold(
-            (failure) => emit(PopularMoviesError(failure.message)),
-            (data) => data.isNotEmpty
+        (failure) => emit(PopularMoviesError(failure.message)),
+        (data) => data.isNotEmpty
             ? emit(PopularMoviesHasData(data))
             : emit(PopularMoviesEmpty()),
       );

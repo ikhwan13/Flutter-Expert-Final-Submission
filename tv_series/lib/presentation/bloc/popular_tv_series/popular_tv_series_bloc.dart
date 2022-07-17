@@ -5,7 +5,7 @@ part 'popular_tv_series_state.dart';
 
 class PopularTvSeriesBloc
     extends Bloc<PopularTvSeriesEvent, PopularTvSeriesState> {
-  final GetPopularTv _getPopularTvSeries;
+  final GetPopularTvSeries _getPopularTvSeries;
   PopularTvSeriesBloc(this._getPopularTvSeries)
       : super(PopularTvSeriesEmpty()) {
     on<OnPopularTvSeriesCalled>((event, emit) async {
@@ -14,8 +14,8 @@ class PopularTvSeriesBloc
       final result = await _getPopularTvSeries.execute();
 
       result.fold(
-            (failure) => emit(PopularTvSeriesError(failure.message)),
-            (data) => data.isNotEmpty
+        (failure) => emit(PopularTvSeriesError(failure.message)),
+        (data) => data.isNotEmpty
             ? emit(PopularTvSeriesHasData(data))
             : emit(PopularTvSeriesEmpty()),
       );

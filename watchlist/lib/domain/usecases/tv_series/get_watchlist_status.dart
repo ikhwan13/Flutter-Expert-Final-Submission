@@ -1,9 +1,9 @@
-import 'package:tv_series/tv_series.dart';
+import 'package:tv_series/domain/repository/tv_series_repository.dart';
 
-class GetWatchListStatusTv {
-  final TvRepository repository;
+class GetWatchListStatusTvSeries {
+  final TvSeriesRepository repository;
 
-  GetWatchListStatusTv(this.repository);
+  GetWatchListStatusTvSeries(this.repository);
 
   Future<bool> execute(int id) async {
     return repository.isAddedToWatchlistTvSeries(id);

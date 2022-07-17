@@ -1,15 +1,17 @@
 name: core
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+publish_to: 'none'
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.17.3 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
+
+  # Modular
   movie:
     path: ../movie
   tv_series:
@@ -21,16 +23,17 @@ dependencies:
   watchlist:
     path: ../watchlist
 
+
   equatable: ^2.0.3
-  google_fonts: ^3.0.1
   dartz: ^0.10.1
   sqflite_sqlcipher: ^2.1.0
   encrypt: ^5.0.1
   http: ^0.13.4
   cached_network_image: ^3.0.0
+  salomon_bottom_bar: ^3.3.1
+  google_fonts: ^3.0.1
   firebase_core: ^1.17.1
   firebase_crashlytics: ^2.8.1
-
 
 dev_dependencies:
   flutter_test:

@@ -14,7 +14,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
       final result = await _getMovieDetail.execute(id);
 
       result.fold((failure) => emit(MovieDetailError(failure.message)),
-              (data) => emit(MovieDetailHasData(data)));
+          (data) => emit(MovieDetailHasData(data)));
     });
   }
 }

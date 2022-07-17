@@ -6,10 +6,10 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:tv_series/tv_series.dart';
 
-import '../../dummy_data/dummy_object_tv.dart';
+import '../../dummy_data/dummy_object_tv_series.dart';
 import 'tv_series_recommendation_bloc_test.mocks.dart';
 
-@GenerateMocks([GetTvRecommendations])
+@GenerateMocks([GetTvSeriesRecommendations])
 void main() {
   late MockGetTvSeriesRecommendations mockGetTvSeriesRecommendations;
   late TvSeriesRecommendationBloc tvSeriesRecommendationBloc;

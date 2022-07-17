@@ -1,29 +1,30 @@
 import 'package:dartz/dartz.dart';
+import 'package:movie/domain/entities/movie.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:search/search.dart';
-import 'package:tv_series/tv_series.dart';
+import 'package:search/domain/usecases/search_movies.dart';
 
 import '../../helpers/helper_test.mocks.dart';
 
 void main() {
-  late SearchTv usecase;
-  late MockTvSeriesRepository mockTvRepository;
+  late SearchMovies usecase;
+  late MockMovieRepository mockMovieRepository;
 
   setUp(() {
-    mockTvRepository = MockTvSeriesRepository();
-    usecase = SearchTv(mockTvRepository);
+    mockMovieRepository = MockMovieRepository();
+    usecase = SearchMovies(mockMovieRepository);
   });
 
-  final tTv = <Tv>[];
-  const tQuery = 'game of thrones';
+  final tMovies = <Movie>[];
+  const tQuery = 'spiderman';
 
-  test('should get list of TV Series from the repository', () async {
+  test('should get list of movies from the repository', () async {
     // arrange
-    when(mockTvRepository.searchTv(tQuery)).thenAnswer((_) async => Right(tTv));
+    when(mockMovieRepository.searchMovies(tQuery))
+        .thenAnswer((_) async => Right(tMovies));
     // act
     final result = await usecase.execute(tQuery);
     // assert
-    expect(result, Right(tTv));
+    expect(result, Right(tMovies));
   });
 }

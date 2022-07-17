@@ -31,9 +31,9 @@ void main() {
       },
       act: (bloc) => bloc.add(OnNowPlayingMovieCalled()),
       expect: () => <NowPlayingMovieState>[
-        NowPlayingMovieLoading(),
-        NowPlayingMovieHasData(testMovieList),
-      ],
+            NowPlayingMovieLoading(),
+            NowPlayingMovieHasData(testMovieList),
+          ],
       verify: (bloc) {
         verify(mockGetNowPlayingMovie.execute());
         return OnNowPlayingMovieCalled().props;

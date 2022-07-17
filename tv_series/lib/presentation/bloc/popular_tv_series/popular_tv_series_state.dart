@@ -20,7 +20,7 @@ class PopularTvSeriesError extends PopularTvSeriesState {
 }
 
 class PopularTvSeriesHasData extends PopularTvSeriesState {
-  final List<Tv> result;
+  final List<TvSeries> result;
   PopularTvSeriesHasData(this.result);
   @override
   List<Object> get props => [result];

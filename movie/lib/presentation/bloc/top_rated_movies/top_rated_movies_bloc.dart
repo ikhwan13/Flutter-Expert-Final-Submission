@@ -12,12 +12,12 @@ class TopRatedMoviesBloc
       final result = await _getTopRatedMovies.execute();
 
       result.fold(
-            (failure) => emit(TopRatedMoviesError(failure.message)),
-            (data) => data.isNotEmpty
+        (failure) => emit(TopRatedMoviesError(failure.message)),
+        (data) => data.isNotEmpty
             ? emit(TopRatedMoviesHasData(data))
             : emit(
-          TopRatedMoviesEmpty(),
-        ),
+                TopRatedMoviesEmpty(),
+              ),
       );
     });
   }

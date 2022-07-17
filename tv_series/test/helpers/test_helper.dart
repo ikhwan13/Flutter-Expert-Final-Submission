@@ -5,10 +5,10 @@ import 'package:http/http.dart' as http;
 import 'package:tv_series/tv_series.dart';
 
 @GenerateMocks([
-  TvRepository,
-  TvRemoteDataSource,
-  TvLocalDataSource,
-  DatabaseHelperTv,
+  TvSeriesRepository,
+  TvSeriesRemoteDataSource,
+  TvSeriesLocalDataSource,
+  DatabaseHelper,
 ], customMocks: [
   MockSpec<http.Client>(as: #MockHttpClient),
   MockSpec<IOClient>(as: #MockIOClient)

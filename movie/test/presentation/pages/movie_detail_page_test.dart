@@ -53,71 +53,71 @@ void main() {
   const testId = 1;
 
   testWidgets('page should display circular progress indicator when loading',
-          (WidgetTester tester) async {
-        when(() => fakeMovieDetailBloc.state).thenReturn(MovieDetailLoading());
-        when(() => fakeWatchlistMoviesBloc.state)
-            .thenReturn(WatchlistMoviesLoading());
-        when(() => fakeMovieRecommendationsBloc.state)
-            .thenReturn(MovieRecommendationsLoading());
+      (WidgetTester tester) async {
+    when(() => fakeMovieDetailBloc.state).thenReturn(MovieDetailLoading());
+    when(() => fakeWatchlistMoviesBloc.state)
+        .thenReturn(WatchlistMoviesLoading());
+    when(() => fakeMovieRecommendationsBloc.state)
+        .thenReturn(MovieRecommendationsLoading());
 
-        final circularProgressIndicatorFinder =
+    final circularProgressIndicatorFinder =
         find.byType(CircularProgressIndicator);
 
-        await tester.pumpWidget(_makeTestableWidget(const MoviesDetailPage(
-          id: testId,
-        )));
-        await tester.pump();
+    await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(
+      id: testId,
+    )));
+    await tester.pump();
 
-        expect(circularProgressIndicatorFinder, findsOneWidget);
-      });
+    expect(circularProgressIndicatorFinder, findsOneWidget);
+  });
 
   testWidgets('should widget display which all required',
-          (WidgetTester tester) async {
-        when(() => fakeMovieDetailBloc.state)
-            .thenReturn(MovieDetailHasData(testMovieDetail));
-        when(() => fakeWatchlistMoviesBloc.state)
-            .thenReturn(WatchlistMoviesHasData(testMovieList));
-        when(() => fakeMovieRecommendationsBloc.state)
-            .thenReturn(MovieRecommendationsHasData(testMovieList));
-        await tester
-            .pumpWidget(_makeTestableWidget(const MoviesDetailPage(id: testId)));
-        await tester.pump();
+      (WidgetTester tester) async {
+    when(() => fakeMovieDetailBloc.state)
+        .thenReturn(MovieDetailHasData(testMovieDetail));
+    when(() => fakeWatchlistMoviesBloc.state)
+        .thenReturn(WatchlistMoviesHasData(testMovieList));
+    when(() => fakeMovieRecommendationsBloc.state)
+        .thenReturn(MovieRecommendationsHasData(testMovieList));
+    await tester
+        .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: testId)));
+    await tester.pump();
 
-        expect(find.text('Watchlist'), findsOneWidget);
-        expect(find.text('Overview'), findsOneWidget);
-        expect(find.text('More Like This'), findsOneWidget);
-        expect(find.byKey(const Key('detail_movie')), findsOneWidget);
-      });
+    expect(find.text('Watchlist'), findsOneWidget);
+    expect(find.text('Overview'), findsOneWidget);
+    expect(find.text('More Like This'), findsOneWidget);
+    expect(find.byKey(const Key('detail_movie')), findsOneWidget);
+  });
 
   testWidgets(
       'should display add icon when movie is not added to watchlist in watchlist button',
-          (WidgetTester tester) async {
-        when(() => fakeMovieDetailBloc.state)
-            .thenReturn(MovieDetailHasData(testMovieDetail));
-        when(() => fakeWatchlistMoviesBloc.state)
-            .thenReturn(WatchlistMoviesIsAdded(false));
-        when(() => fakeMovieRecommendationsBloc.state)
-            .thenReturn(MovieRecommendationsHasData(testMovieList));
-        final addIconFinder = find.byIcon(Icons.add);
-        await tester
-            .pumpWidget(_makeTestableWidget(const MoviesDetailPage(id: testId)));
-        await tester.pump();
-        expect(addIconFinder, findsOneWidget);
-      });
+      (WidgetTester tester) async {
+    when(() => fakeMovieDetailBloc.state)
+        .thenReturn(MovieDetailHasData(testMovieDetail));
+    when(() => fakeWatchlistMoviesBloc.state)
+        .thenReturn(WatchlistMoviesIsAdded(false));
+    when(() => fakeMovieRecommendationsBloc.state)
+        .thenReturn(MovieRecommendationsHasData(testMovieList));
+    final addIconFinder = find.byIcon(Icons.add);
+    await tester
+        .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: testId)));
+    await tester.pump();
+    expect(addIconFinder, findsOneWidget);
+  });
 
   testWidgets(
       'should display check icon when movie is added to watchlist in watchlist button',
-          (WidgetTester tester) async {
-        when(() => fakeMovieDetailBloc.state)
-            .thenReturn(MovieDetailHasData(testMovieDetail));
-        when(() => fakeWatchlistMoviesBloc.state)
-            .thenReturn(WatchlistMoviesIsAdded(true));
-        when(() => fakeMovieRecommendationsBloc.state)
-            .thenReturn(MovieRecommendationsHasData(testMovieList));
-        final checkIconFinder = find.byIcon(Icons.check);
-        await tester
-            .pumpWidget(_makeTestableWidget(const MoviesDetailPage(id: testId)));
-        await tester.pump();
-        expect(checkIconFinder, findsOneWidget);
-      });
+      (WidgetTester tester) async {
+    when(() => fakeMovieDetailBloc.state)
+        .thenReturn(MovieDetailHasData(testMovieDetail));
+    when(() => fakeWatchlistMoviesBloc.state)
+        .thenReturn(WatchlistMoviesIsAdded(true));
+    when(() => fakeMovieRecommendationsBloc.state)
+        .thenReturn(MovieRecommendationsHasData(testMovieList));
+    final checkIconFinder = find.byIcon(Icons.check);
+    await tester
+        .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: testId)));
+    await tester.pump();
+    expect(checkIconFinder, findsOneWidget);
+  });
 }

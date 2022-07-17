@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:movie/movie.dart';
 
 void main() {
-  const tMovieModel = MoviesModel(
+  const tMovieModel = MovieModel(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],

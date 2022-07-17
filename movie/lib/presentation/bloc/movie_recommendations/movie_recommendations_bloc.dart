@@ -16,8 +16,8 @@ class MovieRecommendationsBloc
       final result = await _getMovieRecommendations.execute(id);
 
       result.fold(
-            (failure) => emit(MovieRecommendationsError(failure.message)),
-            (data) => data.isNotEmpty
+        (failure) => emit(MovieRecommendationsError(failure.message)),
+        (data) => data.isNotEmpty
             ? emit(MovieRecommendationsHasData(data))
             : emit(MovieRecommendationsEmpty()),
       );

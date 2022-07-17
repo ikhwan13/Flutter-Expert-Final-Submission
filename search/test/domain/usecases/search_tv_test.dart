@@ -1,24 +1,24 @@
 import 'package:dartz/dartz.dart';
-import '../../../../tv_series/lib/domain/entities/tv.dart';
-import '../../../lib/domain/usecases/search_tv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:search/search.dart';
+import 'package:tv_series/tv_series.dart';
 
-import '../../../../core/test/helpers/test_helper.mocks.dart';
+import '../../helpers/helper_test.mocks.dart';
 
 void main() {
-  late SearchTv usecase;
+  late SearchTvSeries usecase;
   late MockTvSeriesRepository mockTvRepository;
 
   setUp(() {
     mockTvRepository = MockTvSeriesRepository();
-    usecase = SearchTv(mockTvRepository);
+    usecase = SearchTvSeries(mockTvRepository);
   });
 
-  final tTv = <Tv>[];
-  final tQuery = 'Game of throne';
+  final tTv = <TvSeries>[];
+  const tQuery = 'game of thrones';
 
-  test('should get list of tv from the repository', () async {
+  test('should get list of TV Series from the repository', () async {
     // arrange
     when(mockTvRepository.searchTv(tQuery)).thenAnswer((_) async => Right(tTv));
     // act

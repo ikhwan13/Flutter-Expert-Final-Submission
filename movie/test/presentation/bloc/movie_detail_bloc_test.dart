@@ -33,9 +33,9 @@ void main() {
       },
       act: (bloc) => bloc.add(OnMovieDetailCalled(testId)),
       expect: () => <MovieDetailState>[
-        MovieDetailLoading(),
-        MovieDetailHasData(testMovieDetail),
-      ],
+            MovieDetailLoading(),
+            MovieDetailHasData(testMovieDetail),
+          ],
       verify: (bloc) {
         verify(mockGetMovieDetail.execute(testId));
         return OnMovieDetailCalled(testId).props;

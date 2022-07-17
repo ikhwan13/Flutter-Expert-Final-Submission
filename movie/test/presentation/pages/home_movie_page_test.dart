@@ -55,18 +55,18 @@ void main() {
 
   testWidgets(
       'page should display listview of NowPlayingMovies when HasData state is happen',
-          (WidgetTester tester) async {
-        when(() => fakeNowPlayingMoviesBloc.state)
-            .thenReturn(NowPlayingMovieHasData(testMovieList));
-        when(() => fakePopularMovieBloc.state)
-            .thenReturn(PopularMoviesHasData(testMovieList));
-        when(() => fakeTopRatedMovieBloc.state)
-            .thenReturn(TopRatedMoviesHasData(testMovieList));
+      (WidgetTester tester) async {
+    when(() => fakeNowPlayingMoviesBloc.state)
+        .thenReturn(NowPlayingMovieHasData(testMovieList));
+    when(() => fakePopularMovieBloc.state)
+        .thenReturn(PopularMoviesHasData(testMovieList));
+    when(() => fakeTopRatedMovieBloc.state)
+        .thenReturn(TopRatedMoviesHasData(testMovieList));
 
-        final listViewFinder = find.byType(ListView);
+    final listViewFinder = find.byType(ListView);
 
-        await tester.pumpWidget(_createTestableWidget(const HomeMoviesPage()));
+    await tester.pumpWidget(_createTestableWidget(const MovieHomePage()));
 
-        expect(listViewFinder, findsWidgets);
-      });
+    expect(listViewFinder, findsWidgets);
+  });
 }

@@ -9,7 +9,7 @@ import 'package:tv_series/tv_series.dart';
 
 import 'search_tv_bloc_test.mocks.dart';
 
-@GenerateMocks([SearchTv])
+@GenerateMocks([SearchTvSeries])
 void main() {
   late TvSeriesSearchBloc searchBloc;
   late MockSearchTvSeries mockSearchTv;
@@ -23,13 +23,13 @@ void main() {
     expect(searchBloc.state, TvSeriesSearchEmpty());
   });
 
-  final tTvModel = Tv(
+  final tTvModel = TvSeries(
     backdropPath: '/mUkuc2wyV9dHLG0D0Loaw5pO2s8.jpg',
     genreIds: const [10765, 10759, 18],
     id: 1399,
     originalName: 'Game of Thrones',
     overview:
-    "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+        "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
     popularity: 29.780826,
     posterPath: '/rweIrveL43TaxUN0akQEaAXL6x0.jpg',
     firstAirDate: '2011-04-17',
@@ -37,7 +37,7 @@ void main() {
     voteAverage: 7.91,
     voteCount: 1172,
   );
-  final tTvList = <Tv>[tTvModel];
+  final tTvList = <TvSeries>[tTvModel];
   const tQuery = 'game of thrones';
 
   blocTest<TvSeriesSearchBloc, TvSeriesSearchState>(

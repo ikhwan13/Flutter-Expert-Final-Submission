@@ -21,7 +21,7 @@ class TvSeriesSearchError extends TvSeriesSearchState {
 }
 
 class TvSeriesSearchHasData extends TvSeriesSearchState {
-  final List<Tv> result;
+  final List<TvSeries> result;
 
   const TvSeriesSearchHasData(this.result);
 

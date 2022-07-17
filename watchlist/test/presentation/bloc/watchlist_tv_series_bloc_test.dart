@@ -6,14 +6,14 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:watchlist/watchlist.dart';
 
-import '../../dummy_data/tv_series/dummy_object_tv.dart';
+import '../../dummy_data/tv_series/dummy_object_tv_series.dart';
 import 'watchlist_tv_series_bloc_test.mocks.dart';
 
 @GenerateMocks([
-  GetWatchListStatusTv,
-  GetWatchlistTv,
-  RemoveWatchlistTv,
-  SaveWatchlistTv
+  GetWatchListStatusTvSeries,
+  GetWatchlistTvSeries,
+  RemoveWatchlistTvSeries,
+  SaveWatchlistTvSeries
 ])
 void main() {
   late MockGetWatchlistTvSeries mockGetWatchlistTvSeries;
@@ -62,7 +62,7 @@ void main() {
       'should emits WatchlistMoviesLoading state and then WatchlistMoviesError state when data is failed fetched..',
       build: () {
         when(mockGetWatchlistTvSeries.execute()).thenAnswer(
-                (_) async => const Left(ServerFailure('Server Failure')));
+            (_) async => const Left(ServerFailure('Server Failure')));
         return watchlistTvSeriesBloc;
       },
       act: (bloc) => bloc.add(OnWatchlistTvSeriesCalled()),
@@ -113,8 +113,8 @@ void main() {
         },
         act: (bloc) => bloc.add(FetchWatchlistTvSeriesStatus(testTvDetail.id)),
         expect: () => <WatchlistTvSeriesState>[
-          WatchlistTvSeriesIsAdded(false),
-        ],
+              WatchlistTvSeriesIsAdded(false),
+            ],
         verify: (bloc) {
           verify(mockGetWatchListStatusTvSeries.execute(testTvDetail.id));
           return FetchWatchlistTvSeriesStatus(testTvDetail.id).props;
@@ -143,8 +143,8 @@ void main() {
       'should throw failure message status when adding movie to watchlist is failed',
       build: () {
         when(mockSaveWatchlistTvSeries.execute(testTvDetail)).thenAnswer(
-                (_) async =>
-            const Left(DatabaseFailure('can\'t add data to watchlist')));
+            (_) async =>
+                const Left(DatabaseFailure('can\'t add data to watchlist')));
         return watchlistTvSeriesBloc;
       },
       act: (bloc) => bloc.add(AddTvSeriesToWatchlist(testTvDetail)),
@@ -180,8 +180,8 @@ void main() {
       'should throw failure message status when removie movie from watchlist is failed',
       build: () {
         when(mockRemoveWatchlistTvSeries.execute(testTvDetail)).thenAnswer(
-                (_) async =>
-            const Left(DatabaseFailure('can\'t add data to watchlist')));
+            (_) async =>
+                const Left(DatabaseFailure('can\'t add data to watchlist')));
         return watchlistTvSeriesBloc;
       },
       act: (bloc) => bloc.add(RemoveTvSeriesFromWatchlist(testTvDetail)),
