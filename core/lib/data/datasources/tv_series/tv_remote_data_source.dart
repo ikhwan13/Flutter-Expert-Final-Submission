@@ -21,7 +21,7 @@ class TvSeriesRemoteDataSourceImpl implements TvRemoteDataSource {
     final response =
         await client.get(Uri.parse('$baseUrl/tv/on_the_air?$apiKey'));
     if (response.statusCode == 200) {
-      return TvSeriesResponse.fromJson(json.decode(response.body)).tvSeriesList;
+      return TvResponse.fromJson(json.decode(response.body)).tvSeriesList;
     } else {
       throw ServerException();
     }
@@ -31,7 +31,7 @@ class TvSeriesRemoteDataSourceImpl implements TvRemoteDataSource {
   Future<List<TvModel>> getPopularTvSeries() async {
     final response = await client.get(Uri.parse('$baseUrl/tv/popular?$apiKey'));
     if (response.statusCode == 200) {
-      return TvSeriesResponse.fromJson(json.decode(response.body)).tvSeriesList;
+      return TvResponse.fromJson(json.decode(response.body)).tvSeriesList;
     } else {
       throw ServerException();
     }
@@ -42,7 +42,7 @@ class TvSeriesRemoteDataSourceImpl implements TvRemoteDataSource {
     final response =
         await client.get(Uri.parse('$baseUrl/tv/top_rated?$apiKey'));
     if (response.statusCode == 200) {
-      return TvSeriesResponse.fromJson(json.decode(response.body)).tvSeriesList;
+      return TvResponse.fromJson(json.decode(response.body)).tvSeriesList;
     } else {
       throw ServerException();
     }
@@ -63,7 +63,7 @@ class TvSeriesRemoteDataSourceImpl implements TvRemoteDataSource {
     final response =
         await client.get(Uri.parse('$baseUrl/tv/$id/recommendations?$apiKey'));
     if (response.statusCode == 200) {
-      return TvSeriesResponse.fromJson(json.decode(response.body)).tvSeriesList;
+      return TvResponse.fromJson(json.decode(response.body)).tvSeriesList;
     } else {
       throw ServerException();
     }
@@ -74,7 +74,7 @@ class TvSeriesRemoteDataSourceImpl implements TvRemoteDataSource {
     final response =
         await client.get(Uri.parse('$baseUrl/search/tv?$apiKey&query=$query'));
     if (response.statusCode == 200) {
-      return TvSeriesResponse.fromJson(json.decode(response.body)).tvSeriesList;
+      return TvResponse.fromJson(json.decode(response.body)).tvSeriesList;
     } else {
       throw ServerException();
     }

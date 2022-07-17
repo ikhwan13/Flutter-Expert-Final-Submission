@@ -48,7 +48,7 @@ class _MovieHomePageState extends State<MovieHomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Now Playing',
+                'Movies Now Playing',
                 style: kHeading6,
               ),
               BlocBuilder<NowPlayingMovieBloc, NowPlayingMovieState>(
@@ -70,7 +70,7 @@ class _MovieHomePageState extends State<MovieHomePage> {
                 }
               }),
               _buildSubHeading(
-                title: 'Popular',
+                title: 'Popular Movies',
                 onTap: () =>
                     Navigator.pushNamed(context, PopularMoviesPage.routeName),
               ),
@@ -89,7 +89,7 @@ class _MovieHomePageState extends State<MovieHomePage> {
                 }
               }),
               _buildSubHeading(
-                title: 'Top Rated',
+                title: 'Top Rated Movies',
                 onTap: () =>
                     Navigator.pushNamed(context, TopRatedMoviesPage.routeName),
               ),

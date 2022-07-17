@@ -4,7 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:tv_series/tv_series.dart';
 import 'package:watchlist/watchlist.dart';
 
-import '../../dummy_data/dummy_object_tv_series.dart';
+import '../../dummy_data/dummy_object_tv.dart';
 import '../../helpers/page_test_helper.dart';
 
 void main() {
@@ -65,7 +65,7 @@ void main() {
     final circularProgressIndicatorFinder =
         find.byType(CircularProgressIndicator);
 
-    await tester.pumpWidget(_makeTestableWidget(const TvSeriesDetailPage(
+    await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(
       id: testId,
     )));
     await tester.pump();
@@ -82,7 +82,7 @@ void main() {
     when(() => fakeTvSeriesRecommendationBloc.state)
         .thenReturn(TvSeriesRecommendationHasData(testTvList));
     await tester
-        .pumpWidget(_makeTestableWidget(const TvSeriesDetailPage(id: testId)));
+        .pumpWidget(_makeTestableWidget(const TvDetailPage(id: testId)));
     await tester.pump();
 
     expect(find.text('Watchlist'), findsOneWidget);
@@ -102,7 +102,7 @@ void main() {
         .thenReturn(TvSeriesRecommendationHasData(testTvList));
     final addIconFinder = find.byIcon(Icons.add);
     await tester
-        .pumpWidget(_makeTestableWidget(const TvSeriesDetailPage(id: testId)));
+        .pumpWidget(_makeTestableWidget(const TvDetailPage(id: testId)));
     await tester.pump();
     expect(addIconFinder, findsOneWidget);
   });
@@ -118,7 +118,7 @@ void main() {
         .thenReturn(TvSeriesRecommendationHasData(testTvList));
     final checkIconFinder = find.byIcon(Icons.check);
     await tester
-        .pumpWidget(_makeTestableWidget(const TvSeriesDetailPage(id: testId)));
+        .pumpWidget(_makeTestableWidget(const TvDetailPage(id: testId)));
     await tester.pump();
     expect(checkIconFinder, findsOneWidget);
   });

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tv_series/tv_series.dart';
 import 'package:core/core.dart';
 
-class TvSeriesCard extends StatelessWidget {
+class TvCard extends StatelessWidget {
   final TvSeries tv;
 
-  const TvSeriesCard(this.tv, {Key? key}) : super(key: key);
+  const TvCard(this.tv, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class TvSeriesCard extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(
             context,
-            TvSeriesDetailPage.routeName,
+            TvDetailPage.routeName,
             arguments: tv.id,
           );
         },

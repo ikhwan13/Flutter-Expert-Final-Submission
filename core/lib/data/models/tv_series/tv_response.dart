@@ -1,13 +1,13 @@
 import 'package:core/data/models/tv_series/tv_model.dart';
 import 'package:equatable/equatable.dart';
 
-class TvSeriesResponse extends Equatable {
+class TvResponse extends Equatable {
   final List<TvModel> tvSeriesList;
 
-  const TvSeriesResponse({required this.tvSeriesList});
+  const TvResponse({required this.tvSeriesList});
 
-  factory TvSeriesResponse.fromJson(Map<String, dynamic> json) =>
-      TvSeriesResponse(
+  factory TvResponse.fromJson(Map<String, dynamic> json) =>
+      TvResponse(
         tvSeriesList: List<TvModel>.from((json["results"] as List)
             .map((x) => TvModel.fromJson(x))
             .where((element) => element.posterPath != null)),

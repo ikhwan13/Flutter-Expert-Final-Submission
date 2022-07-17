@@ -9,7 +9,7 @@ import 'package:tv_series/tv_series.dart';
 
 import 'search_tv_bloc_test.mocks.dart';
 
-@GenerateMocks([SearchTvSeries])
+@GenerateMocks([SearchTv])
 void main() {
   late TvSeriesSearchBloc searchBloc;
   late MockSearchTvSeries mockSearchTv;

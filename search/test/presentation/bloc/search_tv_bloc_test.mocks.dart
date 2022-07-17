@@ -7,7 +7,7 @@ import 'dart:async' as _i5;
 import 'package:core/core.dart' as _i6;
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:search/domain/usecases/search_tv_series.dart' as _i4;
+import 'package:search/domain/usecases/search_tv.dart' as _i4;
 import 'package:tv_series/tv_series.dart' as _i2;
 
 // ignore_for_file: type=lint
@@ -28,7 +28,7 @@ class _FakeEither_1<L, R> extends _i1.Fake implements _i3.Either<L, R> {}
 /// A class which mocks [SearchTvSeries].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSearchTvSeries extends _i1.Mock implements _i4.SearchTvSeries {
+class MockSearchTvSeries extends _i1.Mock implements _i4.SearchTv {
   MockSearchTvSeries() {
     _i1.throwOnMissingStub(this);
   }

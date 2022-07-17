@@ -6,8 +6,8 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:tv_series/tv_series.dart';
 
-import '../../dummy_data/dummy_object_tv_series.dart';
-import 'top_rated_tv_series_bloc_test.mocks.dart';
+import '../../dummy_data/dummy_object_tv.dart';
+import 'top_rated_tv_bloc_test.mocks.dart';
 
 @GenerateMocks([GetTopRatedTvSeries])
 void main() {

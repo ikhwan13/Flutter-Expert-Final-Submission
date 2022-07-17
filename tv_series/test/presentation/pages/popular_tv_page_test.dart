@@ -37,7 +37,7 @@ void main() {
     final circularProgressIndicatorFinder =
         find.byType(CircularProgressIndicator);
 
-    await tester.pumpWidget(_makeTestableWidget(const PopularTvSeriesPage()));
+    await tester.pumpWidget(_makeTestableWidget(const PopularTvPage()));
     await tester.pump();
 
     expect(circularProgressIndicatorFinder, findsOneWidget);
@@ -51,7 +51,7 @@ void main() {
         .thenReturn(PopularTvSeriesError(errorMessage));
 
     final textMessageKeyFinder = find.byKey(const Key('error_msg'));
-    await tester.pumpWidget(_makeTestableWidget(const PopularTvSeriesPage()));
+    await tester.pumpWidget(_makeTestableWidget(const PopularTvPage()));
     await tester.pump();
 
     expect(textMessageKeyFinder, findsOneWidget);

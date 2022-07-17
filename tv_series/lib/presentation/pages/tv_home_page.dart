@@ -46,7 +46,7 @@ class _TvSeriesHomePageState extends State<TvSeriesHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Airing Today',
+                  'TV Series On Airing',
                   style: kHeading6,
                 ),
                 BlocBuilder<NowPlayingTvSeriesBloc, NowPlayingTvSeriesState>(
@@ -68,10 +68,10 @@ class _TvSeriesHomePageState extends State<TvSeriesHomePage> {
                   }
                 }),
                 SubHeading(
-                    title: 'Popular',
+                    title: 'Popular TV Series',
                     onTap: () {
                       Navigator.pushNamed(
-                          context, PopularTvSeriesPage.routeName);
+                          context, PopularTvPage.routeName);
                     }),
                 BlocBuilder<PopularTvSeriesBloc, PopularTvSeriesState>(
                     builder: (context, state) {
@@ -92,10 +92,10 @@ class _TvSeriesHomePageState extends State<TvSeriesHomePage> {
                   }
                 }),
                 SubHeading(
-                    title: 'Top Rated',
+                    title: 'Top Rated TV Series',
                     onTap: () {
                       Navigator.pushNamed(
-                          context, TopRatedTvSeriesPage.routeName);
+                          context, TopRatedTvPage.routeName);
                     }),
                 BlocBuilder<TopRatedTvSeriesBloc, TopRatedTvSeriesState>(
                     builder: (context, state) {
@@ -143,7 +143,7 @@ class TvSeriesList extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  TvSeriesDetailPage.routeName,
+                  TvDetailPage.routeName,
                   arguments: tv.id,
                 );
               },

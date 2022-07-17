@@ -88,7 +88,7 @@ class TvSeriesRepositoryImpl extends TvSeriesRepository {
       TvSeriesDetail tv) async {
     try {
       final result = await localDataSource
-          .removeWatchlistTvSeries(TvSeriesTable.fromEntity(tv));
+          .removeWatchlistTvSeries(TvTable.fromEntity(tv));
       return Right(result);
     } on DatabaseException catch (e) {
       return Left(DatabaseFailure(e.message));
@@ -100,7 +100,7 @@ class TvSeriesRepositoryImpl extends TvSeriesRepository {
       TvSeriesDetail tv) async {
     try {
       final result = await localDataSource
-          .insertWatchlistTvSeries(TvSeriesTable.fromEntity(tv));
+          .insertWatchlistTvSeries(TvTable.fromEntity(tv));
       return Right(result);
     } on DatabaseException catch (e) {
       return Left(DatabaseFailure(e.message));

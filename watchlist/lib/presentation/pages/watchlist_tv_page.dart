@@ -64,7 +64,7 @@ class _WatchlistTvSeriesPageState extends State<WatchlistTvSeriesPage>
           return ListView.builder(
             itemBuilder: (context, index) {
               final tv = watchlistTv[index];
-              return TvSeriesCard(tv);
+              return TvCard(tv);
             },
             itemCount: watchlistTv.length,
           );

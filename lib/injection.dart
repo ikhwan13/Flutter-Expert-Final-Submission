@@ -60,7 +60,7 @@ Future<void> init() async {
   locator.registerLazySingleton(() => SaveWatchlistTvSeries(locator()));
   locator.registerLazySingleton(() => GetWatchlistTvSeries(locator()));
   locator.registerLazySingleton(() => GetWatchListStatusTvSeries(locator()));
-  locator.registerLazySingleton(() => SearchTvSeries(locator()));
+  locator.registerLazySingleton(() => SearchTv(locator()));
 
   // Movie repository
   locator.registerLazySingleton<MovieRepository>(

@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:search/presentation/page/movie_search_page.dart';
-import 'package:search/presentation/page/tv_series_search_page.dart';
+import 'package:search/presentation/page/tv_search_page.dart';
 
 class SearchPage extends StatelessWidget {
   static const routeName = '/searchPage';
@@ -33,7 +33,7 @@ class SearchPage extends StatelessWidget {
         body: const TabBarView(
           children: <Widget>[
             SearchPageMovies(),
-            SearchPageTvSeries(),
+            SearchPageTv(),
           ],
         ),
       )),

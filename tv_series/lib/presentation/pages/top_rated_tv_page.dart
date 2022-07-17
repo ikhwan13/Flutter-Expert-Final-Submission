@@ -2,16 +2,16 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:tv_series/tv_series.dart';
 
-class TopRatedTvSeriesPage extends StatefulWidget {
-  static const routeName = '/toprated-tvseries';
+class TopRatedTvPage extends StatefulWidget {
+  static const routeName = '/toprated-tv';
 
-  const TopRatedTvSeriesPage({Key? key}) : super(key: key);
+  const TopRatedTvPage({Key? key}) : super(key: key);
 
   @override
-  State<TopRatedTvSeriesPage> createState() => _TopRatedTvSeriesPageState();
+  State<TopRatedTvPage> createState() => _TopRatedTvSeriesPageState();
 }
 
-class _TopRatedTvSeriesPageState extends State<TopRatedTvSeriesPage> {
+class _TopRatedTvSeriesPageState extends State<TopRatedTvPage> {
   @override
   void initState() {
     super.initState();
@@ -38,7 +38,7 @@ class _TopRatedTvSeriesPageState extends State<TopRatedTvSeriesPage> {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final tv = tvSeries[index];
-                  return TvSeriesCard(tv);
+                  return TvCard(tv);
                 },
                 itemCount: tvSeries.length,
               );

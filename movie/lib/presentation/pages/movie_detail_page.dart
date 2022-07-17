@@ -210,7 +210,7 @@ class _DetailContentState extends State<DetailContent> {
                             ),
                             const SizedBox(height: 16),
                             Text(
-                              'More Like This',
+                              'Recommendations',
                               style: kHeading6,
                             ),
                             BlocBuilder<MovieRecommendationsBloc,

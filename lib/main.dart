@@ -69,14 +69,14 @@ class MyApp extends StatelessWidget {
               return CupertinoPageRoute(builder: (_) => SearchPage());
             case WatchlistPage.routeName:
               return MaterialPageRoute(builder: (_) => WatchlistPage());
-            case PopularTvSeriesPage.routeName:
-              return CupertinoPageRoute(builder: (_) => PopularTvSeriesPage());
-            case TopRatedTvSeriesPage.routeName:
-              return CupertinoPageRoute(builder: (_) => TopRatedTvSeriesPage());
-            case TvSeriesDetailPage.routeName:
+            case PopularTvPage.routeName:
+              return CupertinoPageRoute(builder: (_) => PopularTvPage());
+            case TopRatedTvPage.routeName:
+              return CupertinoPageRoute(builder: (_) => TopRatedTvPage());
+            case TvDetailPage.routeName:
               final id = settings.arguments as int;
               return MaterialPageRoute(
-                builder: (_) => TvSeriesDetailPage(id: id),
+                builder: (_) => TvDetailPage(id: id),
                 settings: settings,
               );
             case AboutPage.routeName:

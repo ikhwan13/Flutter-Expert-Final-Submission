@@ -37,7 +37,7 @@ final testWatchlistTv = TvSeries.watchlist(
   overview: 'overview',
 );
 
-const testTvTable = TvSeriesTable(
+const testTvTable = TvTable(
   id: 1,
   name: 'name',
   posterPath: 'posterPath',

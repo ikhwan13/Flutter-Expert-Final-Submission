@@ -1,8 +1,8 @@
 import 'package:search/search.dart';
 import 'package:tv_series/tv_series.dart';
 
-part 'tv_series_search_event.dart';
-part 'tv_series_search_state.dart';
+part 'tv_event.dart';
+part 'tv_state.dart';
 
 EventTransformer<T> tvseriesDebounce<T>(Duration duration) {
   return (events, mapper) => events.debounceTime(duration).flatMap(mapper);
@@ -10,7 +10,7 @@ EventTransformer<T> tvseriesDebounce<T>(Duration duration) {
 
 class TvSeriesSearchBloc
     extends Bloc<TvSeriesSearchEvent, TvSeriesSearchState> {
-  final SearchTvSeries _searchTvSeries;
+  final SearchTv _searchTvSeries;
   TvSeriesSearchBloc(this._searchTvSeries) : super(TvSeriesSearchEmpty()) {
     on<TvSeriesOnQueryChanged>(
       (event, emit) async {

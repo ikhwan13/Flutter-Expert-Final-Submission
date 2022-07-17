@@ -17,7 +17,7 @@ void main() {
   });
 
   group('get Now Playing Tv', () {
-    final tTvList = TvSeriesResponse.fromJson(json.decode(
+    final tTvList = TvResponse.fromJson(json.decode(
             readJson('dummy_data/tv_series/now_playing_tv.json')))
         .tvSeriesList;
 
@@ -48,7 +48,7 @@ void main() {
   });
 
   group('get Popular Tv', () {
-    final tTvList = TvSeriesResponse.fromJson(json
+    final tTvList = TvResponse.fromJson(json
             .decode(readJson('dummy_data/tv_series/popular_tv.json')))
         .tvSeriesList;
 
@@ -77,7 +77,7 @@ void main() {
   });
 
   group('get Top Rated Tv', () {
-    final tTvList = TvSeriesResponse.fromJson(json
+    final tTvList = TvResponse.fromJson(json
             .decode(readJson('dummy_data/tv_series/top_rated_tv.json')))
         .tvSeriesList;
 
@@ -133,7 +133,7 @@ void main() {
   });
 
   group('get tv recommendations', () {
-    final tTvList = TvSeriesResponse.fromJson(json.decode(
+    final tTvList = TvResponse.fromJson(json.decode(
             readJson('dummy_data/tv_series/tv_recommendations.json')))
         .tvSeriesList;
     const tId = 1;
@@ -166,7 +166,7 @@ void main() {
   });
 
   group('search tv', () {
-    final tSearchResult = TvSeriesResponse.fromJson(
+    final tSearchResult = TvResponse.fromJson(
             json.decode(readJson('dummy_data/tv_series/search_tv.json')))
         .tvSeriesList;
     const tQuery = 'Game Of Thrones';

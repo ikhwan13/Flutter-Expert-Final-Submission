@@ -4,17 +4,17 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tv_series/tv_series.dart';
 import 'package:watchlist/watchlist.dart';
 
-class TvSeriesDetailPage extends StatefulWidget {
+class TvDetailPage extends StatefulWidget {
   static const routeName = '/detail-tv';
 
   final int id;
-  const TvSeriesDetailPage({Key? key, required this.id}) : super(key: key);
+  const TvDetailPage({Key? key, required this.id}) : super(key: key);
 
   @override
-  State<TvSeriesDetailPage> createState() => _TvSeriesDetailPageState();
+  State<TvDetailPage> createState() => _TvSeriesDetailPageState();
 }
 
-class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
+class _TvSeriesDetailPageState extends State<TvDetailPage> {
   @override
   void initState() {
     super.initState();
@@ -208,7 +208,7 @@ class _DetailContentState extends State<DetailContent> {
                             Text(widget.tvSeries.overview.toString()),
                             const SizedBox(height: 16),
                             Text(
-                              'Recommendation',
+                              'Recommendations',
                               style: kHeading6,
                             ),
                             BlocBuilder<TvSeriesRecommendationBloc,
@@ -236,7 +236,7 @@ class _DetailContentState extends State<DetailContent> {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                TvSeriesDetailPage.routeName,
+                                                TvDetailPage.routeName,
                                                 arguments: tv.id,
                                               );
                                             },
